@@ -55,11 +55,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <div className="flex items-center">
               {product.discount > 0 ? (
                 <>
-                  <span className="font-semibold text-red-500">${(product.price * (1 - product.discount / 100)).toFixed(2)}</span>
-                  <span className="text-sm text-gray-400 line-through ml-2">${product.price.toFixed(2)}</span>
+                  <span className="font-semibold text-red-500">R{(product.price * (1 - product.discount / 100)).toFixed(2)}</span>
+                  <span className="text-sm text-gray-400 line-through ml-2">R{product.price.toFixed(2)}</span>
                 </>
               ) : (
-                <span className="font-semibold">${product.price.toFixed(2)}</span>
+                <span className="font-semibold">R{product.price.toFixed(2)}</span>
               )}
             </div>
           </div>

@@ -27,14 +27,14 @@ const CheckoutPage = () => {
     city: "",
     state: "",
     zipCode: "",
-    country: "USA",
+    country: "South Africa",
     cardNumber: "",
     cardExpiry: "",
     cardCvc: "",
   });
 
-  const shipping = subtotal > 50 ? 0 : 5.99;
-  const tax = subtotal * 0.08;
+  const shipping = subtotal > 500 ? 0 : 75.99;
+  const tax = subtotal * 0.15; // South Africa's VAT is 15%
   const total = subtotal + shipping + tax;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -301,29 +301,40 @@ const CheckoutPage = () => {
                           name="city"
                           value={formData.city}
                           onChange={handleChange}
-                          placeholder="San Francisco"
+                          placeholder="Cape Town"
                           required
                         />
                       </div>
                       <div>
-                        <Label htmlFor="state">State</Label>
-                        <Input
+                        <Label htmlFor="state">Province</Label>
+                        <select
                           id="state"
                           name="state"
                           value={formData.state}
-                          onChange={handleChange}
-                          placeholder="CA"
+                          onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple"
                           required
-                        />
+                        >
+                          <option value="">Select Province</option>
+                          <option value="Eastern Cape">Eastern Cape</option>
+                          <option value="Free State">Free State</option>
+                          <option value="Gauteng">Gauteng</option>
+                          <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                          <option value="Limpopo">Limpopo</option>
+                          <option value="Mpumalanga">Mpumalanga</option>
+                          <option value="North West">North West</option>
+                          <option value="Northern Cape">Northern Cape</option>
+                          <option value="Western Cape">Western Cape</option>
+                        </select>
                       </div>
                       <div>
-                        <Label htmlFor="zipCode">Zip Code</Label>
+                        <Label htmlFor="zipCode">Postal Code</Label>
                         <Input
                           id="zipCode"
                           name="zipCode"
                           value={formData.zipCode}
                           onChange={handleChange}
-                          placeholder="94103"
+                          placeholder="8001"
                           required
                         />
                       </div>
@@ -338,11 +349,9 @@ const CheckoutPage = () => {
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                         className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple"
                         required
+                        disabled
                       >
-                        <option value="USA">United States</option>
-                        <option value="CAN">Canada</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="AUS">Australia</option>
+                        <option value="South Africa">South Africa</option>
                       </select>
                     </div>
                   </div>
@@ -418,7 +427,7 @@ const CheckoutPage = () => {
                       disabled={isProcessing}
                       className="w-2/3 bg-purple hover:bg-purple-tertiary"
                     >
-                      {isProcessing ? "Processing..." : `Pay $${total.toFixed(2)}`}
+                      {isProcessing ? "Processing..." : `Pay R${total.toFixed(2)}`}
                     </Button>
                   </div>
                 </div>
@@ -445,8 +454,8 @@ const CheckoutPage = () => {
                       <p className="font-medium">{item.name}</p>
                       <p className="text-sm text-gray-500">Size: {item.size}</p>
                       <div className="flex justify-between mt-1">
-                        <p className="text-sm">${item.price.toFixed(2)} × {item.quantity}</p>
-                        <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                        <p className="text-sm">R{item.price.toFixed(2)} × {item.quantity}</p>
+                        <p className="font-medium">R{(item.price * item.quantity).toFixed(2)}</p>
                       </div>
                     </div>
                   </div>
@@ -456,19 +465,19 @@ const CheckoutPage = () => {
               <div className="border-t pt-4 space-y-2">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>R{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
-                  <span>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? "Free" : `R${shipping.toFixed(2)}`}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Tax</span>
-                  <span>${tax.toFixed(2)}</span>
+                  <span>VAT (15%)</span>
+                  <span>R{tax.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between font-semibold text-lg pt-2 border-t">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>R{total.toFixed(2)}</span>
                 </div>
               </div>
             </div>
