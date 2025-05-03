@@ -22,10 +22,10 @@ const HomePage = () => {
         <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold text-purple-dark mb-4">
-              Summer Collection 2025
+              Winter Collection 2025
             </h1>
             <p className="text-lg mb-8 text-gray-700 max-w-md">
-              Discover the latest trends in fashion with our new summer collection. Refresh your wardrobe with vibrant colors and comfortable styles.
+              Discover the latest trends in winter fashion. Stay warm and stylish with our cozy winter collection featuring jackets, sweaters, and accessories.
             </p>
             <div className="flex space-x-4">
               <Button asChild className="bg-purple hover:bg-purple-tertiary">
@@ -38,8 +38,8 @@ const HomePage = () => {
           </div>
           <div className="md:w-1/2">
             <img 
-              src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" 
-              alt="Summer Collection" 
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Winter Collection" 
               className="rounded-lg shadow-lg"
             />
           </div>
@@ -93,8 +93,8 @@ const HomePage = () => {
       {/* Sale Banner */}
       <section className="py-16 bg-purple">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Summer Sale</h2>
-          <p className="text-xl text-white/90 mb-8">Up to 50% off on selected items</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Winter Sale</h2>
+          <p className="text-xl text-white/90 mb-8">Up to 50% off on selected winter items</p>
           <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
             <Link to="/category/sale">Shop Now</Link>
           </Button>
@@ -132,7 +132,7 @@ const HomePage = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Free Shipping</h3>
-              <p className="text-gray-600">On all orders over $50</p>
+              <p className="text-gray-600">On all orders over R500</p>
             </div>
             
             <div className="p-6">

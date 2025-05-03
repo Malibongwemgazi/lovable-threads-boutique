@@ -53,8 +53,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-600 hover:text-purple">Our Story</Link></li>
               <li><Link to="/careers" className="text-gray-600 hover:text-purple">Careers</Link></li>
-              <li><Link to="/stores" className="text-gray-600 hover:text-purple">Store Locator</Link></li>
-              <li><Link to="/sustainability" className="text-gray-600 hover:text-purple">Sustainability</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-purple">Store Locator</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-purple">Sustainability</Link></li>
               <li><Link to="/terms" className="text-gray-600 hover:text-purple">Terms & Conditions</Link></li>
             </ul>
           </div>
@@ -63,9 +63,9 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} FreeClothing. All rights reserved.</p>
           <div className="flex space-x-6">
-            <Link to="/privacy" className="text-gray-500 hover:text-purple text-sm">Privacy Policy</Link>
+            <Link to="/terms" className="text-gray-500 hover:text-purple text-sm">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-500 hover:text-purple text-sm">Terms of Service</Link>
-            <Link to="/cookies" className="text-gray-500 hover:text-purple text-sm">Cookie Policy</Link>
+            <Link to="/terms" className="text-gray-500 hover:text-purple text-sm">Cookie Policy</Link>
           </div>
         </div>
       </div>
